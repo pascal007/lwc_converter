@@ -1,0 +1,238 @@
+
+<!doctype html>
+
+<html lang= "en" >
+
+<head>
+
+<!-- Required meta tags -->
+
+<meta charset= "utf-8" >
+
+<meta name= "viewport" content= "width=device-width, initial-scale=1, shrink-to-fit=no" >
+
+<!-- Bootstrap CSS -->
+<link rel= "stylesheet" href= "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity= "sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin= "anonymous" >
+
+<title> Lagos water corporation</title>
+
+</head>
+
+<body>
+<nav class="navbar navbar-light bg-light">
+	<a href="#" class="navbar-brand text-dark ml-4 h1">Calculator</a>
+</nav>
+
+<div id="welcome" class="jumbotron jumbotron-fluid pb-5 text-white text-center">
+<h1 class="h1 display-4 ml-4"> Lagos Water Corporation converter </h1>
+
+
+<p class="lead ml-4">Fill in the values to calculate your weekly Lagos water corporation remittances!<br>Click to start!<p>
+
+<button class="btn btn-info btn-lg px-5">Start</button> 
+
+
+</div>
+<div class="container" id="menu">
+
+	<ul class="nav nav-tabs nav-justified">
+		<li class="nav-item" id="lwcMenu1" onclick="menuSwitch1()"><a href="#" class="nav-link" id="lwcMenu2">Lagos water Corporation</a></li>
+		<li class="nav-item" id="tbillMenu1" onclick="menuSwitch2()"><a href="#" class="nav-link" id="tbillMenu2">Treasury bills Calculator</a></li>
+	</ul>
+			
+			
+				
+</div>
+
+
+<div class="container mt-5 d-none" id="menu1" >
+<!-- Input field for Effective available amount-->
+<div class="form-group">
+<label for="ebalance">Effective available amount: </label>
+<input type="text" id="val" name="ebalance" class="form-control" placeholder="Enter effective available amount" required!>
+</div>
+
+<!-- Button to calculate -->
+<div class="form-group">
+<button class="btn btn-lg btn-success" onclick="result()">Calculate</button>
+</div>
+
+<!-- Display field for Balance-->
+<div class="form-group">
+<label for="balance">Balance: </label>
+<input id="balance" type="text" name="balance" class="form-control" disabled>
+</div>
+
+<!-- Display field for ABC value -->
+<div class="form-group">
+<label for="abc">ABC value: </label>
+<input id="abc_field" type="text" name="abc" class="form-control" disabled>
+</div>
+
+<!-- Display field for LWC value -->
+<div class="form-group">
+<label for="lwc">LWC value: </label>
+<input id="lwc_field" type="text" name="lwc" class="form-control" disabled>
+</div>
+
+<!-- Reset button-->
+<div class="form-group">
+<button class="btn btn-lg btn-outline-danger btn-center d-block" onclick="clearFields()">Clear fields</button>
+</div>
+
+
+</div>
+
+
+
+<div class="container mt-5" id="menu2" >
+		<!-- Input field for Effective available amount-->
+		<div class="d-flex justify-content-around">
+			<div class="form-group">
+			<label for="principal">Principal</label>
+			<input type="text" name="principal" id="" placeholder="Enter Principal amount" class="form-control">
+
+			</div>
+
+    	<div class="form-group">
+					<label for="rate">Rate</label>
+					<input type="text" name="rate" id="" placeholder="Enter Rate" class="form-control">
+		
+			</div>
+
+		<div class="form-group">
+				<label for="time">Time</label>
+				<input type="text" name="principal" id="" placeholder="Enter Time" class="form-control">
+		
+				</div>
+			
+
+		</div>
+		
+		
+		</div>
+		
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+#welcome {
+	background-image : url("https://cdn.pixabay.com/photo/2014/04/05/11/39/rain-316580_960_720.jpg");
+
+
+	
+	}
+</style>
+
+<script>
+
+
+//make initial div fullscreen
+function result(){
+
+//Balance calculation
+var availableBalance = document.getElementById("val").value;
+var balance = availableBalance - 1105.02;
+document.getElementById("balance").value = balance;
+
+//ABC value calculation
+var abcAmount = (balance*3)/1000;
+document.getElementById("abc_field").value = abcAmount;
+
+//LWC calculation
+var lwcAmount = balance - abcAmount;
+document.getElementById("lwc_field").value = lwcAmount;
+}
+
+function clearFields(){
+//clear all input fields
+document.getElementById("balance").value = "";
+document.getElementById("abc_field").value = "";
+document.getElementById("lwc_field").value = "";
+}
+
+
+//--------------------------------------------------------------------------------
+
+//Treasury bills calculation
+document.getElementById("tbillMenu1").addEventListener("click");
+document.getElementById("lwcMenu1").addEventListener("click");
+
+function menuSwitch1(){
+
+document.getElementById("tbillMenu2").classList.remove("active");
+document.getElementById("lwcMenu2").classList.add("active");
+document.getElementById("menu1").style.display = "block";
+document.getElementById("menu1").classList.remove("d-none");
+
+
+}
+
+function menuSwitch2(){
+
+		document.getElementById("tbillMenu2").classList.add("active");
+		document.getElementById("lwcMenu2").classList.remove("active");
+		document.getElementById("menu1").style.display = "none";
+
+}
+
+
+</script>
+<!-- Optional JavaScript -->
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+<script src= "https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity= "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin= "anonymous" >
+</script>
+
+<script src= "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity= "sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin= "anonymous" >
+</script>
+
+<script src= "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity= "sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin= "anonymous" >
+</script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
